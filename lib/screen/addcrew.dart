@@ -17,7 +17,6 @@ class AddCrew extends StatelessWidget {
     TextEditingController nameController = TextEditingController();
     TextEditingController jobController = TextEditingController();
 
-
     return Scaffold(
       appBar: appBar,
       body: SafeArea(
@@ -39,25 +38,24 @@ class AddCrew extends StatelessWidget {
               ),
               const SizedBox(height: 50),
               ElevatedButton(
-                  onPressed: (){
-                    context.read<CrewProvider>().post(nameController.text, jobController.text);
+                  onPressed: () {
+                    context
+                        .read<CrewProvider>()
+                        .post(nameController.text, jobController.text);
                   },
-                  child: const Text("Add Crew")
-              ),
+                  child: const Text("Add Crew")),
               SizedBox(
                 height: 50,
               ),
               Center(
-                child: Consumer<CrewProvider>(
-                  builder: (context, data, _) {
-                    return Column(
-                      children: [
-                        Text(data.crewModel.name),
-                        Text(data.crewModel.job)
-                      ],
-                    );
-                  }
-                ),
+                child: Consumer<CrewProvider>(builder: (context, data, _) {
+                  return Column(
+                    children: [
+                      Text(data.crewModel.name),
+                      Text(data.crewModel.job)
+                    ],
+                  );
+                }),
               ),
             ],
           ),
