@@ -11,9 +11,9 @@ class ListCrewProvider with ChangeNotifier {
     String apiUrl = 'https://reqres.in/api/users?page';
     Response response = await Dio().get(apiUrl);
 
-    List x = response.data["data"];
+    List value = response.data["data"];
 
-    _list = x.map((e) => ListCrewModel.fromMap(e)).toList();
+    _list = value.map((e) => ListCrewModel.fromMap(e)).toList();
 
     notifyListeners();
   }

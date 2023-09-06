@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:httprequest/Model/listcrew_model.dart';
 import 'package:httprequest/provider/listcrew_provider.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,12 @@ class _ListCrewState extends State<ListCrew> {
               return _listcrew(data.list[index]);
             },
           );
-        }));
+        }),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () => context.go('/add'),
+        ),
+    );
   }
 
   Widget _listcrew(ListCrewModel model) {

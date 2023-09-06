@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:httprequest/provider/crew_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +10,10 @@ class AddCrew extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQueryHeight = MediaQuery.of(context).size.height;
     final appBar = AppBar(
-      leading: const Icon(Icons.arrow_back_rounded),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_rounded),
+        onPressed: () => context.go('/'),
+      ),
       title: const Text("Add Crew"),
     );
     final bodyMediaQuery = mediaQueryHeight - appBar.preferredSize.height;
